@@ -1,6 +1,8 @@
 # QtQwt
 
-<img src="data/images/logo.png" width="15%" align="right"/>
+[![build](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml/badge.svg)](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml)
+
+<img src="data/images/logo.png" width="25%" align="right"/>
 
 CMake wrapper for [Qwt](https://qwt.sourceforge.io/).
 

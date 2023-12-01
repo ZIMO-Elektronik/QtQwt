@@ -10,9 +10,14 @@ jobs:
   x86_64-linux-gnu-gcc:
     runs-on: ubuntu-latest
     steps:
+      - uses: jurplel/install-qt-action@v3.3.0
+        with:
+          version: '6.6.1'
       - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
-      - run: sudo apt install qt6-base-dev
       - run: cmake -Bbuild
+        env:
+          CC:   gcc-13
+          CXX:  g++-13
       - run: cmake --build build
