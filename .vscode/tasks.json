@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake QtQwt",
+      "type": "shell",
+      "isBackground": true,
+      "command": "cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug"
+    },
+    {
+      "label": "Ninja QtQwt",
+      "type": "shell",
+      "isBackground": true,
+      "command": "ninja -C build QtQwt"
+    }
+  ]
+}
