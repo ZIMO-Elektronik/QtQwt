@@ -2,7 +2,7 @@
 
 [![build](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml/badge.svg)](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml)
 
-<img src="data/images/logo.png" width="25%" align="right"/>
+<img src="data/images/logo.png" width="20%" align="right"/>
 
 CMake wrapper for [Qwt](https://qwt.sourceforge.io/).
 
@@ -28,13 +28,13 @@ This library is meant to be consumed with CMake.
 
 ```cmake
 # Either by including it with CPM
-cpmaddpackage("gh:ZIMO-Elektronik/QtQwt@6.2.0")
+cpmaddpackage("gh:ZIMO-Elektronik/QtQwt@6.3.0")
 
 # or the FetchContent module
 FetchContent_Declare(
   QtQwt
   GIT_REPOSITORY "https://github.com/ZIMO-Elektronik/QtQwt"
-  GIT_TAG v6.2.0)
+  GIT_TAG v6.3.0)
 
 target_link_libraries(YourTarget PRIVATE Qt::Qwt)
 ```
