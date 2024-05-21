@@ -33,7 +33,7 @@ cpmaddpackage("gh:ZIMO-Elektronik/QtQwt@6.2.0")
 # or the FetchContent module
 FetchContent_Declare(
   QtQwt
-  GIT_REPOSITORY https://github.com/ZIMO-Elektronik/QtQwt
+  GIT_REPOSITORY "https://github.com/ZIMO-Elektronik/QtQwt"
   GIT_TAG v6.2.0)
 
 target_link_libraries(YourTarget PRIVATE Qt::Qwt)
