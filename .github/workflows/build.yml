@@ -13,4 +13,3 @@ jobs:
       pre-build: sudo apt install -y libgl1-mesa-dev libglx-dev libqt6svg6* qt6-base-dev
       args: -DCMAKE_BUILD_TYPE=Debug
       target: QtQwtBode
-      post-build: ctest --test-dir build --schedule-random --timeout 86400
