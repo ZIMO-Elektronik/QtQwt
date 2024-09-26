@@ -7,9 +7,9 @@
 CMake wrapper for [Qwt](https://qwt.sourceforge.io/).
 
 <details>
-  <summary>Table of contents</summary>
+  <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
@@ -18,7 +18,7 @@ CMake wrapper for [Qwt](https://qwt.sourceforge.io/).
   </ol>
 </details>
 
-## Getting started
+## Getting Started
 ### Prerequisites
 - C++17 compatible compiler
 - [CMake](https://cmake.org/) ( >= 3.25 )
