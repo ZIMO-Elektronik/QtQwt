@@ -26,7 +26,7 @@ find_qt(
 
 FetchContent_Declare(
   qwt_src
-  URL "https://netix.dl.sourceforge.net/project/qwt/qwt/6.3.0/qwt-6.3.0.zip"
+  URL "https://downloads.sourceforge.net/qwt/qwt/6.3.0/qwt-6.3.0.zip"
   URL_HASH MD5=1a6dae3ea388e4152a10e39516c83dac)
 FetchContent_Populate(qwt_src)
 
