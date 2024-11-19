@@ -1,6 +1,6 @@
 # QtQwt
 
-[![build](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml/badge.svg)](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml)
+[![build](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml/badge.svg)](https://github.com/ZIMO-Elektronik/QtQwt/actions/workflows/build.yml) [![license](https://img.shields.io/github/license/ZIMO-Elektronik/QtQwt)](https://github.com/ZIMO-Elektronik/QtQwt/raw/master/LICENSE)
 
 <img src="data/images/logo.png" width="20%" align="right"/>
 
