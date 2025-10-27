@@ -4,7 +4,7 @@ include(FetchContent)
 FetchContent_Declare(
   CMakeModules
   GIT_REPOSITORY "https://github.com/ZIMO-Elektronik/CMakeModules"
-  GIT_TAG v0.9.5)
+  GIT_TAG v0.10.0)
 FetchContent_MakeAvailable(CMakeModules)
 
 version_from_git()
@@ -24,21 +24,24 @@ find_qt(
   Svg
   Widgets)
 
-FetchContent_Declare(
-  qwt_src
-  URL "https://downloads.sourceforge.net/qwt/qwt/6.3.0/qwt-6.3.0.zip"
-  URL_HASH MD5=1a6dae3ea388e4152a10e39516c83dac)
-FetchContent_Populate(qwt_src)
+cpmaddpackage(
+  NAME
+  Qwt
+  URL
+  "https://downloads.sourceforge.net/qwt/qwt/6.3.0/qwt-6.3.0.zip"
+  VERSION
+  6.3.0
+  DOWNLOAD_ONLY
+  ON)
 
-file(GLOB_RECURSE SRC ${qwt_src_SOURCE_DIR}/classincludes/*
-     ${qwt_src_SOURCE_DIR}/src/*)
+file(GLOB_RECURSE SRC ${Qwt_SOURCE_DIR}/classincludes/* ${Qwt_SOURCE_DIR}/src/*)
 
 # Qt6 does not come with <qgl.h>
 if(Qt6_FOUND)
-  list(REMOVE_ITEM SRC ${qwt_src_SOURCE_DIR}/src/qwt_plot_glcanvas.h)
-  list(REMOVE_ITEM SRC ${qwt_src_SOURCE_DIR}/src/qwt_plot_glcanvas.cpp)
-  list(REMOVE_ITEM SRC ${qwt_src_SOURCE_DIR}/src/qwt_plot_opengl_canvas.h)
-  list(REMOVE_ITEM SRC ${qwt_src_SOURCE_DIR}/src/qwt_plot_opengl_canvas.cpp)
+  list(REMOVE_ITEM SRC ${Qwt_SOURCE_DIR}/src/qwt_plot_glcanvas.h)
+  list(REMOVE_ITEM SRC ${Qwt_SOURCE_DIR}/src/qwt_plot_glcanvas.cpp)
+  list(REMOVE_ITEM SRC ${Qwt_SOURCE_DIR}/src/qwt_plot_opengl_canvas.h)
+  list(REMOVE_ITEM SRC ${Qwt_SOURCE_DIR}/src/qwt_plot_opengl_canvas.cpp)
 endif()
 
 add_library(QtQwt ${SRC})
@@ -46,19 +49,12 @@ add_library(Qt::Qwt ALIAS QtQwt)
 
 target_compile_definitions(QtQwt PUBLIC QWT_MOC_INCLUDE)
 
-target_include_directories(
-  QtQwt SYSTEM PUBLIC ${qwt_src_SOURCE_DIR}/classincludes
-                      ${qwt_src_SOURCE_DIR}/src)
+target_include_directories(QtQwt SYSTEM PUBLIC ${Qwt_SOURCE_DIR}/classincludes
+                                               ${Qwt_SOURCE_DIR}/src)
 
 target_link_libraries(QtQwt PUBLIC Qt::Concurrent Qt::OpenGL Qt::PrintSupport
                                    Qt::Svg Qt::Widgets)
 
 if(PROJECT_IS_TOP_LEVEL)
   add_subdirectory(examples)
-  file(
-    DOWNLOAD
-    "https://github.com/ZIMO-Elektronik/.github/raw/master/data/.clang-format"
-    ${CMAKE_CURRENT_LIST_DIR}/.clang-format)
-  file(GLOB_RECURSE SRC examples/*.*pp)
-  add_clang_format_target(QtQwtFormat OPTIONS -i FILES ${SRC})
 endif()
