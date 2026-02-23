@@ -8,10 +8,14 @@ on:
 
 jobs:
   x86_64-linux-gnu-gcc:
-    uses: ZIMO-Elektronik/.github-workflows/.github/workflows/x86_64-linux-gnu-gcc.yml@v0.2.0
-    with:
-      pre-build: |
-        sudo apt update -y
-        sudo apt install -y libgl1-mesa-dev libglx-dev libqt6svg6* qt6-base-dev
-      args: -DCMAKE_BUILD_TYPE=Debug
-      target: QtQwtBode
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5.0.0
+        with:
+          fetch-depth: 0
+      - name: Install prerequisites
+        run: |
+          sudo apt update -y
+          sudo apt install -y libgl1-mesa-dev libglx-dev libqt6svg6* qt6-base-dev
+      - run: cmake --preset "Debug"
+      - run: cmake --build build --target QtQwtBode
